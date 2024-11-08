@@ -1,0 +1,6 @@
+[08-Nov-2024 19:18:32 UTC] PHP Warning:  Invalid "memory_limit" setting. Invalid quantity "64MB": unknown multiplier "B", interpreting as "64" for backwards compatibility in Unknown on line 0
+[08-Nov-2024 19:18:32 UTC] PHP Warning:  Failed to set memory limit to 64 bytes (Current memory usage is 2097152 bytes) in Unknown on line 0
+[08-Nov-2024 22:18:33 Europe/Moscow] PHP Fatal error:  Uncaught Error: Class "Symfony\Bundle\FrameworkBundle\Controller\AbstractController" not found in C:\Projects\task-manager\src\Controller\TaskController.php:15
+Stack trace:
+#0 {main}
+  thrown in C:\Projects\task-manager\src\Controller\TaskController.php on line 15
