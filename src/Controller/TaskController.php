@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Attribute\MapQueryParameter;
 use Symfony\Component\HttpKernel\Attribute\MapRequestPayload;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Attribute\Route;
@@ -24,9 +25,13 @@ class TaskController extends AbstractController
     }
 
     #[Route('/task', name: 'app_task', methods: ['GET'])]
-    public function index()
+    public function index(#[MapQueryParameter()] ?int $status = null)
     {
-        $tasks = $this->taskRepository->findAll();
+        $criteria = [];
+        if (!is_null($status)) {
+            $criteria['status'] = $status;
+        }
+        $tasks = $this->taskRepository->findBy($criteria, ['id' => 'DESC']);
         $response = new JsonResponse($this->serializer->serialize($tasks, 'json'), 200, [], true);
         return $response;
     }
