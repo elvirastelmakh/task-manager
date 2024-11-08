@@ -1,14 +1,14 @@
 # Разворачивание проекта локально
 
-0. Установить docker и утилиту ddev (если она ранее на компьютер не устанавливалась)
-1. Склонировать репозиторий: `git clone https://github.com/elvirastelmakh/task-manager.git`
-2. Перейти в созданную директорию: `cd task-manager`
-3. Запустить проект: `ddev start`
-4. Зайти в web-контейнер: `ddev ssh`
-5. Установить пакеты с помощью утилиты composer: `composer install`
-6. Запустить миграции: `bin/console doctrine:migrations:migrate`
-7. Запустить тесты: `vendor/bin/phpunit`
-8. Для работы с БД можно в DBeaver создать подключение с параметрами: 
+1. Установить docker и утилиту ddev (если она ранее на компьютер не устанавливалась)
+2. Склонировать репозиторий: `git clone https://github.com/elvirastelmakh/task-manager.git`
+3. Перейти в созданную директорию: `cd task-manager`
+4. Запустить проект: `ddev start`
+5. Зайти в web-контейнер: `ddev ssh`
+6. Установить пакеты с помощью утилиты composer: `composer install`
+7. Запустить миграции: `bin/console doctrine:migrations:migrate`
+8. Запустить тесты: `vendor/bin/phpunit`
+9. Для работы с БД можно в DBeaver создать подключение с параметрами: 
     1. Server Host: localhost
     2. Port: узнать с помощью `ddev describe`
     3. Database: db
@@ -45,8 +45,8 @@
         {
             "name": "new task",
             "description": "test",
-            "endDate": null,
-            "status": 0
+            "endDate": "2024-09-01",
+            "status": 1
         }
         ```
     3. Удаление задачи:
