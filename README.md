@@ -10,7 +10,7 @@
 8. Запустить тесты: `vendor/bin/phpunit`
 9. Для работы с БД можно в DBeaver создать подключение с параметрами: 
     1. Server Host: localhost
-    2. Port: узнать с помощью `ddev describe`
+    2. Port: 54699 (узнать с помощью `ddev describe`, можно задать в .ddev\config.yaml)
     3. Database: db
     4. Username: db
     5. Password: db
@@ -22,6 +22,17 @@
    Можно отфильтровать список по статусу задачи:
    https://task-manager.ddev.site/task?status={status}
    Значение параметра {status} = 0 (завершена задача) или 1 (не завершена)
+
+   Можно задать параметры сортировки, например:
+   https://task-manager.ddev.site/task?sort=-status,-id
+   Данные будут отсортированы сначала по убыванию статуса, затем по убыванию id.
+   По умолчанию данные отсортированы по убыванию id.
+
+   Можно задать параметры паджинации:
+   https://task-manager.ddev.site/task?x-pagination-size=20&x-pagination-page=2
+   Параметр x-pagination-size задает кол-во записей на странице, 
+   x-pagination-page - номер выводимой страницы
+   Также можно задать параметры паджинации не в строке запроса, а в заголовках (headers).
    
 2. Добавление/редактирование/удаление задачи доступно через утилиту Postman или аналогичную:
 
